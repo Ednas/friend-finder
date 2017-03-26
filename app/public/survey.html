@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Friend Finder</title>
+  <title>Meet Your Mate</title>
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery.js"></script>
@@ -11,6 +11,9 @@
   <!-- Font Awesome Glyphicons -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
+  <!-- Chosen -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 <!--my style sheet -->
   <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
@@ -43,6 +46,7 @@
       <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
     </select>
+
     <h3><strong>Question 2</strong></h3>
     <h4>Generally speaking, you are a creative person</h4>
     <select data-placeholder="" class="chosen-select" id="q2">
@@ -53,6 +57,7 @@
       <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
     </select>
+
     <h3><strong>Question 3</strong></h3>
     <h4>Money is important to me</h4>
     <select data-placeholder="" class="chosen-select" id="q3">
@@ -63,6 +68,7 @@
       <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
     </select>
+
     <h3><strong>Question 4</strong></h3>
     <h4>I like animals</h4>
     <select data-placeholder="" class="chosen-select" id="q4">
@@ -73,6 +79,7 @@
       <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
     </select>
+
     <h3><strong>Question 5</strong></h3>
     <h4>I prefer indoor activity over outdoor activity</h4>
     <select data-placeholder="" class="chosen-select" id="q5">
@@ -83,6 +90,7 @@
       <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
     </select>
+
     <h3><strong>Question 6</strong></h3>
     <h4>Religion is very important to me</h4>
     <select data-placeholder="" class="chosen-select" id="q6">
@@ -93,6 +101,7 @@
       <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
     </select>
+
     <h3><strong>Question 7</strong></h3>
     <h4>I want a drinking buddy</h4>
     <select data-placeholder="" class="chosen-select" id="q7">
@@ -103,6 +112,7 @@
       <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
     </select>
+
     <h3><strong>Question 8</strong></h3>
     <h4>I complete my responsibilities before I go have fun</h4>
     <select data-placeholder="" class="chosen-select" id="q8">
@@ -113,6 +123,7 @@
       <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
     </select>
+
     <h3><strong>Question 9</strong></h3>
     <h4>I like to travel</h4>
     <select data-placeholder="" class="chosen-select" id="q9">
@@ -123,6 +134,7 @@
       <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
     </select>
+    
     <h3><strong>Question 10</strong></h3>
     <h4>Being around people energizes me</h4>
     <select data-placeholder="" class="chosen-select" id="q10">
@@ -182,9 +194,9 @@
       width: "95%"
     }
   }
-  for (var config {
-      $('.chosen-select').chosen(config['.chosen-select']);
-    });
+    for (var selector in config) {
+      $(selector).chosen(config[selector]);
+    }
   // Capture the form inputs 
   $("#submit").on("click", function() {
     // Form validation
