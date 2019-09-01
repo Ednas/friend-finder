@@ -34,7 +34,7 @@
         <h4>Name (Required)</h4>
         <input type="text" name="" id="name" class="form-control" required>
         <h4>Link to Photo Image (Required)</h4>
-        <input type="text" name="" id="photo" class="form-control" required>
+        <input type="text" name="" id="photo" class="form-control link" required>
         <hr>
         <h3><strong>Question 1</strong></h3>
         <h4>You like to take risks and challenges excite you.</h4>
@@ -154,7 +154,10 @@
         <footer class="footer text-center">
             <div class="container">
                 <p><a href="http://www.edna.tech">About Edna Jonsson</a> | <a href="https://github.com/Ednas/friend-finder">GitHub Repo</a>
-                    <br> &copy; 2016 Edna Jonsson</p>
+                    <br> &copy; 2016 -
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> Edna Jonsson</p>
             </div>
         </footer>
     </div>
@@ -202,6 +205,13 @@
             // Form validation
             function validateForm() {
                 var isValid = true;
+                $('.link').each(function() {
+                    var isLink = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/
+                    if (isLink.test($(this).val()) == false) {
+                        isValid = false;
+                        alert("Not a valid URL");
+                    }
+                });
                 $('.form-control').each(function() {
                     if ($(this).val() === '')
                         isValid = false;

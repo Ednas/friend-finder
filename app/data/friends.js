@@ -6,7 +6,7 @@ var friends = [{
     {
         "name": "Mistical Taytay",
         "photo": "http://rizalprovince.ph/tourism_pictures/Avilon%20MZP%20-%20Montalban%20(2).jpg",
-        "scores": [4, 2, 5, 1, 3, 2, 2, 1, 3, 2]
+        "scores": [1, 2, 1, 1, 3, 2, 2, 1, 3, 2]
     },
     {
         "name": "Skylar Rose",
@@ -21,12 +21,12 @@ var friends = [{
     {
         "name": "Edward Snowden",
         "photo": "https://upload.wikimedia.org/wikipedia/commons/6/60/Edward_Snowden-2.jpg",
-        "scores": [4, 3, 4, 1, 5, 2, 5, 3, 1, 4]
+        "scores": [4, 3, 1, 1, 5, 2, 5, 3, 1, 4]
     },
     {
         "name": "Hesso Nader",
         "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Aatef_Jenyat.jpg/293px-Aatef_Jenyat.jpg",
-        "scores": [3, 3, 4, 1, 4, 3, 5, 3, 5, 4]
+        "scores": [3, 3, 4, 5, 4, 3, 5, 3, 5, 5]
     },
     {
         "name": "Sonneth The Swift",

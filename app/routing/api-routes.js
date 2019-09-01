@@ -33,7 +33,7 @@ module.exports = function(app) {
             "name": req.body.name,
             "photo": req.body.photo,
             "scores": b
-        }
+        };
 
 
         console.log("Name: " + userName);
@@ -45,12 +45,11 @@ module.exports = function(app) {
 
 
         console.log("+++++++=================++++++++++");
+    
         // Loop through all the friend possibilities in the database. 
         for (var i = 0; i < friends.length; i++) {
-
-            console.log(friends[i].name);
             totalDifference = 0;
-            console.log("Total Diff " + totalDifference);
+            console.log(friends[i].name);
             console.log("Best match friend diff " + bestMatch.friendDifference);
 
             var bfriendScore = friends[i].scores.reduce((a, b) => a + b, 0);
@@ -58,20 +57,27 @@ module.exports = function(app) {
             totalDifference += Math.abs(sum - bfriendScore);
             console.log(" -------------------> " + totalDifference);
 
-            // If the sum of differences is less then the differences of the current "best match"
-            if (totalDifference <= bestMatch.friendDifference) {
 
+            // If the sum of differences is less then the differences of the current "best match"
+            // We are looking for the smallest difference (most similar) people's interests
+            if (totalDifference <= bestMatch.friendDifference) {
                 // Reset the bestMatch to be the new friend. 
                 bestMatch.name = friends[i].name;
                 bestMatch.photo = friends[i].photo;
                 bestMatch.friendDifference = totalDifference;
-                // }
-
+                // If someone runs the application a second time they won't get themselves
+                    if (bestMatch.name == userName){
+                        bestMatch.name = "Edward 'friggin' Snowden";
+                        bestMatch.photo = "https://upload.wikimedia.org/wikipedia/commons/6/60/Edward_Snowden-2.jpg";
+                        bestMatch.friendDifference = 10;
+                    }
+              
             }
             console.log(totalDifference + " Total Difference");
 
         }
         console.log(bestMatch);
+
         // Finally save the user's data to the database (this has to happen AFTER the check. otherwise,
         // the database will always return that the user is the user's best friend).
         friends.push(userData);
