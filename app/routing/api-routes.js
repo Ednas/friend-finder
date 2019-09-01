@@ -57,12 +57,6 @@ module.exports = function(app) {
             console.log("Total friend score " + bfriendScore);
             totalDifference += Math.abs(sum - bfriendScore);
             console.log(" -------------------> " + totalDifference);
-            // Loop through all the scores of each friend
-            // for (var j = 0; j < friends[i].scores[j]; j++) {
-
-            //     // We calculate the difference between the scores and sum them into the totalDifference
-            //     totalDifference += Math.abs(sum - parseInt(friends[i].scores[j]));
-            //     console.log(friends[i].scores[j] + " Friends Scores");
 
             // If the sum of differences is less then the differences of the current "best match"
             if (totalDifference <= bestMatch.friendDifference) {
@@ -88,4 +82,4 @@ module.exports = function(app) {
 
     });
 
-}
+};
