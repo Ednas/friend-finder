@@ -44,7 +44,7 @@
       <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>
-      <option value="5" selected>5 (Strongly Agree)</option>
+      <option value="5">5 (Strongly Agree)</option>
     </select>
 
         <h3><strong>Question 2</strong></h3>
@@ -52,7 +52,7 @@
         <select data-placeholder="" class="chosen-select" id="q2">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
-      <option value="2" selected>2</option>
+      <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
@@ -65,7 +65,7 @@
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
       <option value="3">3</option>
-      <option value="4" selected>4</option>
+      <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
@@ -73,7 +73,7 @@
         <h4>I like animals</h4>
         <select data-placeholder="" class="chosen-select" id="q4">
       <option value=""></option>
-      <option value="1" selected>1 (Strongly Disagree)</option>
+      <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>
@@ -87,7 +87,7 @@
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
       <option value="3">3</option>
-      <option value="4" selected>4</option>
+      <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
@@ -99,7 +99,7 @@
       <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>
-      <option value="5" selected>5 (Strongly Agree)</option>
+      <option value="5">5 (Strongly Agree)</option>
     </select>
 
         <h3><strong>Question 7</strong></h3>
@@ -107,7 +107,7 @@
         <select data-placeholder="" class="chosen-select" id="q7">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
-      <option value="2" selected>2</option>
+      <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
@@ -120,7 +120,7 @@
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
       <option value="3">3</option>
-      <option value="4" selected>4</option>
+      <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
@@ -131,7 +131,7 @@
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
       <option value="3">3</option>
-      <option value="4" selected>4</option>
+      <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
@@ -140,7 +140,7 @@
         <select data-placeholder="" class="chosen-select" id="q10">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
-      <option value="2" selected>2</option>
+      <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
@@ -180,73 +180,7 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        // Chosen CSS
-        var config = {
-            '.chosen-select': {},
-            '.chosen-select-deselect': {
-                allow_single_deselect: true
-            },
-            '.chosen-select-no-single': {
-                disable_search_threshold: 10
-            },
-            '.chosen-select-no-results': {
-                no_results_text: 'Oops, nothing found!'
-            },
-            '.chosen-select-width': {
-                width: "95%"
-            }
-        }
-        for (var selector in config) {
-            $(selector).chosen(config[selector]);
-        }
-        // Capture the form inputs 
-        $("#submit").on("click", function() {
-            // Form validation
-            function validateForm() {
-                var isValid = true;
-                $('.link').each(function() {
-                    var isLink = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/
-                    if (isLink.test($(this).val()) == false) {
-                        isValid = false;
-                        alert("Not a valid URL");
-                    }
-                });
-                $('.form-control').each(function() {
-                    if ($(this).val() === '')
-                        isValid = false;
-                });
-                $('.chosen-select').each(function() {
-                    if ($(this).val() === "")
-                        isValid = false
-                })
-                return isValid;
-            }
-            // If all required fields are filled
-            if (validateForm() == true) {
-                // Create an object for the user's data
-                var userData = {
-                        name: $("#name").val(),
-                        photo: $("#photo").val(),
-                        scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
-                    }
-                    // Grab the URL of the website
-                var currentURL = window.location.origin;
-                // AJAX post the data to the friends API. 
-                $.post(currentURL + "/api/friends", userData, function(data) {
-                    // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                    $("#matchName").text(data.name);
-                    $('#matchImg').attr("src", data.photo);
-                    // Show the modal with the best match 
-                    $("#resultsModal").modal('toggle');
-                });
-            } else {
-                alert("Please fill out all fields before submitting!");
-            }
-
-            return false;
-        });
-    </script>
+    <script type="text/javascript" src="./app.js"></script>
 </body>
 
 </html>
